@@ -1,10 +1,11 @@
-
+type EnvKeys = 'GMAPS_API_KEY' | 'API_URL';
 interface Window {
   env: {
-    [key: string]: string
-  }
+    [key in EnvKeys]: string
+  };
+  [key: string]: any;
 }
 
 declare var window: Window;
 
-export const getEnv = (key: string): string => window.env[key];
+export const getEnv = (key: EnvKeys): string => window.env[key];
